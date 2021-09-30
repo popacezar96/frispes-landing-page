@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap');
+
+
+//Heading fonts
+
+@mixin heading1{
+  font-family: Lora, serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 3.25em;
+}
+
+@mixin heading2{
+  font-family: Lora, serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 51px;
+}
+
+@mixin heading3{
+  font-family: Lora, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 41px;
+}
+
+@mixin heading3-bold{
+  font-family: Lora, serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+}
+
+@mixin heading3-semibold{
+  font-family: Lato, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 38px;
+}
+
+@mixin heading4{
+  font-family: Lora, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 33px;
+}
+
+@mixin heading5{
+  font-family: Lora, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 31px;
+}
+
+@mixin heading6{
+  font-family: Lora, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 28px;
+}
+
+
+//Body fonts
+
+@mixin extraLarge-medium{
+  font-family: Lato, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.25em;
+  /*line-height: 1.87rem;*/
+}
+
+@mixin large-bold{
+  font-family: Lato, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  /*line-height: 28px;*/
+}
+
+@mixin large-medium{
+  font-family: Lato, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  /*line-height: 28px;*/
+}
+
+@mixin normal-medium{
+  font-family: Lato, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1em;
+  /*line-height: 26px;*/
+}
+
+@mixin normal-regular{
+  font-family: Lato, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  /*line-height: 26px;*/
+}
+
+
+//CTA fonts
+
+@mixin extraLarge-bold{
+  font-family: Lato, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+}
