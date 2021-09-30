@@ -204,7 +204,6 @@ const Header = ()=>{
 
 
       </div>
-	  <div> adaug ceva sa vad daca merge</div>
     </header>
 
   );
