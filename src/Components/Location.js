@@ -27,7 +27,7 @@ const Location = (props) =>{
   }
   return (
     <div className = 'location'>
-      <p>{props.country}</p>
+      <p className = 'country-name'>{props.country}</p>
       {currentCities}
     </div>
   );

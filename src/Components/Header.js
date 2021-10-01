@@ -19,7 +19,6 @@ window.onload = function(){
   const typeP = document.querySelector(".show-type p");
 
 
-
   document.onclick = function(e){
     if(e.target === first){
 
@@ -51,6 +50,7 @@ window.onload = function(){
         toggleTypes.style.display = 'none';
       }
     }
+
     // nu e facuta inca ca cele 2 de mai sus
     else if(e.target === third){
       if (rect.style.display === '' || rect.style.display === 'none'){
@@ -61,22 +61,14 @@ window.onload = function(){
         rect.style.display = 'none';
       }
     }
+    // avoid closing when click on countryname or type paragraph
     else if(toggleLocations.style.display === 'block'){
 
       let countryClick = false;
 
-      if (e.target === rect || e.target === toggleLocations){
+      // don't hide rectungle only if u click on rect, toggleLocations or p (country-name)
+      if (e.target === rect || e.target === toggleLocations || e.target.className === 'country-name'){
         countryClick = true;
-      }
-      else{
-        for(let l=0; l<= countryNames.length-1; l++){
-
-          if(e.target === countryNames[l]){
-
-            countryClick = true;
-            break;
-          }
-        }
       }
 
 
@@ -133,7 +125,7 @@ const Header = ()=>{
   const [type, setType] = useState('Private Office');
   searchForm[1].content = type;
 
-  // callback function to help setLoc from Location to Header component
+  // callback function to use setLoc from Location to Header component
   function changeLocation(newValue){
     setLoc(newValue);
   }
