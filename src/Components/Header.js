@@ -3,6 +3,7 @@ import SearchItem from './SearchItem';
 import Location from './Location';
 import {locations} from '../locations';
 import Type from './Type';
+import Calendar from './Calendar';
 
 
 window.onload = function(){
@@ -187,6 +188,9 @@ const Header = ()=>{
             <div className='show-locations'>{allLocations}</div>
 
             <Type handleType = {changeType}/>
+
+            {/*adaug calendar*/}
+            <Calendar/>
 
           </div>
 
