@@ -15,16 +15,21 @@
   margin-left: 8.98%;
   margin-right: 8.98%;
   margin-top: 25px;
+
   //width: 80%;
-  height: 100%;
-  background-color: #222227;
+  //height: 100%;
+  //background-color: #222227;
   box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
 
-
   .month {
+    //position specified to help position the left-right arrows
+    position: relative;
+
     width: 100%;
     height: 5.1rem;
-    background-color: #167e56;
+
+    background-color: $primary;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -61,24 +66,32 @@
       content: url("./left-icon.svg");
 
       position: absolute;
-      right: 4.3%;
-      top: 22px;
+      left: 5%;
+      top: 35%;
 
       width: 24px;
       height: 24px;
 
-      //color: white;
+      cursor: pointer;
     }
 
     .date::after{
       content: url("./right-icon.svg");
-      //color: white;
+
+      position: absolute;
+      right: 5%;
+      top: 36%;
+
+      width: 24px;
+      height: 24px;
+
+      cursor: pointer;
     }
   }
 
   .weekdays {
     width: 100%;
-    height: 4rem;
+    height: 3.5rem;
     padding: 0 0.4rem;
     display: flex;
     align-items: center;
@@ -107,20 +120,25 @@
     padding: 0.2rem;
 
     div {
-      font-size: 1.4rem;
-      margin: 0.3rem;
-      width: calc(40.2rem / 7);
-      height: 5rem;
+
+      @include normal-regular;
+      //font-size: 0.9em;
+      margin: 1.8px;
+
+      width: calc(22rem / 7);
+      height: 2.8rem;
+
       display: flex;
       justify-content: center;
       align-items: center;
+
       text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
       transition: background-color 0.2s;
     }
 
     div:hover:not(.selected-day) {
-      background-color: #262626;
-      border: 0.2rem solid #777;
+      //background-color: #262626;
+      border: 0.1rem solid #777;
       cursor: pointer;
     }
   }
@@ -128,9 +146,10 @@
 
 .prev-date,
 .next-date {
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
 .selected-day {
-  background-color: #167e56;
+  background-color: $primary;
+  border: 2px solid $my-white;
 }
