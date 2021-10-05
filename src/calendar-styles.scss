@@ -1,24 +1,11 @@
 @import "fonts.scss";
 @import "colors.scss";
 
-/*.container {
-  width: 100%;
-  height: 100vh;
-  background-color: #12121f;
-  color: #eee;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-*/
 .calendar {
   margin-left: 8.98%;
   margin-right: 8.98%;
   margin-top: 25px;
 
-  //width: 80%;
-  //height: 100%;
-  //background-color: #222227;
   box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
 
   .month {
@@ -35,7 +22,6 @@
     align-items: center;
     padding: 0 2rem;
     text-align: center;
-    //text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
 
     .date{
       width: 100%;
@@ -115,16 +101,15 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    padding: 0.2rem;
+    padding: 3.2px;
 
     div {
 
       @include normal-regular;
-      //font-size: 0.9em;
       margin: 1.8px;
 
-      width: calc(22rem / 7);
-      height: 2.8rem;
+      width: calc(22em / 7);
+      height: 2.8em;
 
       display: flex;
       justify-content: center;
@@ -135,7 +120,6 @@
     }
 
     div:hover:not(.selected-day) {
-      //background-color: #262626;
       border: 0.1rem solid #777;
       cursor: pointer;
     }

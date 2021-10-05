@@ -15,9 +15,14 @@ window.onload = function(){
 
   const toggleLocations =  document.querySelector(".show-locations");
   const toggleTypes = document.querySelector(".show-type");
+  const toggleCalendar = document.querySelector(".calendar");
 
   const countryNames = document.querySelectorAll(".location p");
   const typeP = document.querySelector(".show-type p");
+
+  const calendarMonth = document.querySelector(".month");
+  const calendarWeekdays = document.querySelector(".weekdays");
+  const calendarDays = document.querySelector(".days");
 
 
   document.onclick = function(e){
@@ -29,6 +34,7 @@ window.onload = function(){
 
         //hide the other labels
         toggleTypes.style.display = 'none';
+        toggleCalendar.style.display = 'none';
       }
       else if(toggleLocations.style.display === 'block'){
         rect.style.display = 'none';
@@ -44,6 +50,7 @@ window.onload = function(){
 
         //hide the other labels
         toggleLocations.style.display = 'none';
+        toggleCalendar.style.display = 'none';
       }
 
       else if(toggleTypes.style.display === 'block'){
@@ -52,17 +59,24 @@ window.onload = function(){
       }
     }
 
-    // nu e facuta inca ca cele 2 de mai sus
     else if(e.target === third){
-      if (rect.style.display === '' || rect.style.display === 'none'){
+      if (toggleCalendar.style.display === '' || toggleCalendar.style.display === 'none'){
+
+        toggleCalendar.style.display = 'block';
         rect.style.display = 'block';
+
+        //hide the other labels
+        toggleLocations.style.display = 'none';
+        toggleTypes.style.display = 'none';
       }
 
-      else{
+      else if(toggleCalendar.style.display === 'block'){
         rect.style.display = 'none';
+        toggleCalendar.style.display = 'none';
       }
     }
-    // avoid closing when click on countryname or type paragraph
+    
+    // avoid closing when click on country name or type paragraph
     else if(toggleLocations.style.display === 'block'){
 
       let countryClick = false;
@@ -91,7 +105,23 @@ window.onload = function(){
         rect.style.display = 'none';
         toggleTypes.style.display = 'none';
       }
+    }
 
+    // only hide calendar if the user selects a day or clicks outside of the calendar
+    else if(toggleCalendar.style.display === 'block'){
+
+      let selectedDay = false;
+
+      //checks if the selected elements is a child of specific nodes
+      if (calendarMonth.contains(e.target) || calendarWeekdays.contains(e.target) ||
+      e.target === rect || e.target === calendarDays){
+        selectedDay = true;
+      }
+
+      if(selectedDay ===false){
+        rect.style.display = 'none';
+        toggleCalendar.style.display = 'none';
+      }
     }
 
     else {
@@ -99,6 +129,7 @@ window.onload = function(){
       //hide all that is inside rect
       toggleLocations.style.display = 'none';
       toggleTypes.style.display = 'none';
+      toggleCalendar.style.display = 'none';
     }
   }
 }
