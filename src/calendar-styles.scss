@@ -62,8 +62,7 @@
       }
     }
 
-    .date::before{
-      content: url("./left-icon.svg");
+    .left-arrow {
 
       position: absolute;
       left: 5%;
@@ -75,12 +74,11 @@
       cursor: pointer;
     }
 
-    .date::after{
-      content: url("./right-icon.svg");
+    .right-arrow{
 
       position: absolute;
       right: 5%;
-      top: 36%;
+      top: 35%;
 
       width: 24px;
       height: 24px;

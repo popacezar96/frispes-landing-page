@@ -1,4 +1,6 @@
 import React, {useEffect} from 'react';
+import leftArrow from '../left-icon.svg';
+import rightArrow from '../right-icon.svg';
 
 const date = new Date();
 
@@ -70,26 +72,30 @@ const renderCalendar = () => {
   }
 };
 
-// calling the function initially
-/*
-window.onload = function (){
-}*/
-
 const Calendar = ()=>{
 
   useEffect(()=>{
+    document.querySelector(".left-arrow").addEventListener("click", () => {
+    date.setMonth(date.getMonth() - 1);
+    renderCalendar();
+  });
+
+  document.querySelector(".right-arrow").addEventListener("click", () => {
+    date.setMonth(date.getMonth() + 1);
+    renderCalendar();
+  });
     renderCalendar();
   });
 
   return(
       <div className="calendar">
         <div className="month">
-
+          <img src={leftArrow} className='left-arrow'/>
           <div className="date">
             <h1></h1>
             <p></p>
           </div>
-
+          <img src= {rightArrow} className='right-arrow'/>
         </div>
         <div className="weekdays">
           <div>Sun</div>
