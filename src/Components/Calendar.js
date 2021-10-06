@@ -46,8 +46,8 @@ const renderCalendar = () => {
     "December",
   ];
 
-  document.querySelector(".date h1").innerHTML = months[date.getMonth()];
-  document.querySelector(".date p").innerHTML = date.getFullYear();
+  document.querySelector(".date h1").textContent = months[date.getMonth()];
+  document.querySelector(".date p").textContent = date.getFullYear();
 
   let days = "";
 
@@ -60,9 +60,10 @@ const renderCalendar = () => {
       i === new Date().getDate() &&
       date.getMonth() === new Date().getMonth()
     ) {
-      days += `<div class="selected-day">${i}</div>`;
-    } else {
-      days += `<div>${i}</div>`;
+        days += `<div class='selected-day'>${i}</div>`;
+      }
+    else {
+        days += `<div>${i}</div>`;
     }
   }
 
@@ -72,19 +73,56 @@ const renderCalendar = () => {
   }
 };
 
-const Calendar = ()=>{
+const Calendar = (props)=>{
+
+  function handleDate(e){
+    const currentMonth = document.querySelector(".date h1").textContent;
+    const currentYear = document.querySelector(".date p").textContent;
+
+    //e.target.setAttribute('class','selected-day');
+    props.handleDate(e.target.textContent +' '+ currentMonth.substring(0,3)+ ' ' + currentYear);
+  }
+
+  //function that adds handleDate function as a click event on each displayed day of a month
+  function addClickOnDays(){
+
+    const allDisplayedDays = document.querySelectorAll(".days div");
+
+    for (let i=0; i<=allDisplayedDays.length-1; i++){
+      //avoid adding click event on days that don't belong to the month
+      if((!allDisplayedDays[i].classList.contains('prev-date')) &&
+      (!allDisplayedDays[i].classList.contains('next-date'))){
+
+        allDisplayedDays[i].addEventListener('click', (e)=>{
+              handleDate(e);
+            });
+        };
+      }
+    }
 
   useEffect(()=>{
-    document.querySelector(".left-arrow").addEventListener("click", () => {
-    date.setMonth(date.getMonth() - 1);
-    renderCalendar();
-  });
+    document.querySelector(".left-arrow").onclick = () => {
 
-  document.querySelector(".right-arrow").addEventListener("click", () => {
-    date.setMonth(date.getMonth() + 1);
+      date.setMonth(date.getMonth() - 1);
+      renderCalendar();
+
+      //add click event on displayed days
+      addClickOnDays();
+    };
+
+    document.querySelector(".right-arrow").onclick = () => {
+
+      date.setMonth(date.getMonth() + 1);
+      renderCalendar();
+
+      //add click event on displayed days
+      addClickOnDays();
+    };
+
     renderCalendar();
-  });
-    renderCalendar();
+
+    //add click event on displayed days
+    addClickOnDays();
   });
 
   return(
