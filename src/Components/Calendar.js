@@ -75,7 +75,8 @@ const renderCalendar = () => {
 
 const Calendar = (props)=>{
 
-  const dateComponent = props.selectedDate;
+  //turn date into array to access day, month, year individually
+  const dateComponent = props.selectedDate.split(" ");
 
   //function that adds handleDate function as a click event on each displayed day of a month
   function addClickOnDays(){
@@ -93,9 +94,9 @@ const Calendar = (props)=>{
       (!allDisplayedDays[i].classList.contains('next-date'))){
 
         //highlighting the day matching the day in the Date component
-        if(dateComponent.substring(0,2) === allDisplayedDays[i].textContent &&
-            dateComponent.substring(3,6) === currentMonth &&
-            dateComponent.substring(7,11) === currentYear){
+        if(dateComponent[0] === allDisplayedDays[i].textContent &&
+            dateComponent[1] === currentMonth &&
+            dateComponent[2] === currentYear){
 
               allDisplayedDays[i].setAttribute('class','selected-day');
           }
