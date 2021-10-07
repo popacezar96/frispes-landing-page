@@ -131,3 +131,7 @@
   background-color: $primary;
   border: 2px solid $my-white;
 }
+
+input[type="date"]{
+  display: none;
+}
