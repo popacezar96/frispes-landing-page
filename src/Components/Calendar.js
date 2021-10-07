@@ -78,7 +78,7 @@ const Calendar = (props)=>{
   //turn date into array to access day, month, year individually
   const dateComponent = props.selectedDate.split(" ");
 
-  //function that adds handleDate function as a click event on each displayed day of a month
+  //adds handleDate function as a click event on each displayed day of a month and highlights selected day
   function addClickOnDays(){
 
     const allDisplayedDays = document.querySelectorAll(".days div");

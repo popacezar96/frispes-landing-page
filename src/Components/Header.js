@@ -38,7 +38,7 @@ window.onload = function(){
       }
       else if(toggleLocations.style.display === 'block'){
         rect.style.display = 'none';
-        toggleLocations.style.display = 'none'
+        toggleLocations.style.display = 'none';
       }
     }
 
@@ -76,7 +76,7 @@ window.onload = function(){
       }
     }
 
-    // avoid closing when click on country name or type paragraph
+    // avoid closing when click on country name
     else if(toggleLocations.style.display === 'block'){
 
       let countryClick = false;
@@ -86,14 +86,13 @@ window.onload = function(){
         countryClick = true;
       }
 
-
       if(countryClick === false){
         rect.style.display = 'none';
         toggleLocations.style.display = 'none';
       }
-
     }
 
+    // avoid closing when click on type paragraph
     else if(toggleTypes.style.display === 'block'){
       let typeClick = false;
 
@@ -107,14 +106,15 @@ window.onload = function(){
       }
     }
 
-    // only hide calendar if the user selects a day or clicks outside of the calendar
+    // only hide calendar if the user selects a day of the displayed month or clicks outside of the calendar
     else if(toggleCalendar.style.display === 'block'){
 
       let selectedDay = false;
 
-      //checks if the selected elements is a child of specific nodes
+      //avoid hiding calendar if the selected element is a child of one of the nodes or is a specific node
       if (calendarMonth.contains(e.target) || calendarWeekdays.contains(e.target) ||
-      e.target === rect || e.target === calendarDays){
+      e.target === rect || e.target === calendarDays || e.target.className === 'prev-date' ||
+      e.target.className === 'next-date'){
         selectedDay = true;
       }
 
@@ -126,6 +126,7 @@ window.onload = function(){
 
     else {
       rect.style.display = 'none';
+
       //hide all that is inside rect
       toggleLocations.style.display = 'none';
       toggleTypes.style.display = 'none';
@@ -134,10 +135,10 @@ window.onload = function(){
   }
 }
 
-//today's date - initial date
+//today's initial date
 function todayDate(){
   const date = new Date();
-  const month = date.toLocaleString('default',{ month:'short'});
+  const month = date.toLocaleString('default', { month:'short'});
   const today = date.getDate() + ' ' + month + ' ' + date.getFullYear();
 
   return today;
