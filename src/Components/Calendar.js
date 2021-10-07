@@ -4,6 +4,21 @@ import rightArrow from '../right-icon.svg';
 
 const date = new Date();
 
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
 const renderCalendar = () => {
   date.setDate(1);
 
@@ -30,21 +45,6 @@ const renderCalendar = () => {
   ).getDay();
 
   const nextDays = 7 - lastDayIndex - 1;
-
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
 
   document.querySelector(".date h1").textContent = months[date.getMonth()];
   document.querySelector(".date p").textContent = date.getFullYear();
@@ -77,6 +77,19 @@ const Calendar = (props)=>{
 
   //turn date into array to access day, month, year individually
   const dateComponent = props.selectedDate.split(" ");
+
+  //setting accepted date-format for the input type=date field
+  let year = dateComponent[2];
+  let day = (dateComponent[0] < 10)? '0'+ dateComponent[0] : dateComponent[0];
+  let month;
+
+  for (let m = 0; m <= months.length-1; m++){
+    if (months[m].includes(dateComponent[1])){
+      month = m+1;
+      month = (month < 10)? '0'+ month : month;
+      break;
+    }
+  }
 
   //adds handleDate function as a click event on each displayed day of a month and highlights selected day
   function addClickOnDays(){
@@ -155,6 +168,8 @@ const Calendar = (props)=>{
           <div>Sat</div>
         </div>
         <div className="days"></div>
+
+        <input type='date' name='date' value = {year + '-' + month + '-' + day}/>
       </div>
   );
 }

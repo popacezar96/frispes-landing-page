@@ -160,7 +160,7 @@ const Header = ()=>{
   searchForm[2].content = date;
 
 
-  // callback function to use setLoc from Location to Header component
+  // callback function to use set Location, Type and Date from child components to Header component
   function changeLocation(newValue){
     setLoc(newValue);
   }
@@ -233,6 +233,7 @@ const Header = ()=>{
 
 
           <button type='submit'>FIND MY SPACE</button>
+          
         </form>
 
 
