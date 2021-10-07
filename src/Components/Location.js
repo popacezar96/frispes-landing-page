@@ -4,6 +4,8 @@ const Location = (props) =>{
 
   // function that calls handleLoc on Events
   function handleClick(e){
+    //document.querySelector("#Vienna").checked = false;
+    //e.target.checked = true;
     props.handleLoc(e.target.value + ', ' + props.country)
   }
   const currentCity = props.city;
@@ -12,10 +14,20 @@ const Location = (props) =>{
   // sometimes props.city is an array of cities so if that is the case, there will be a label for each one
   if(typeof currentCity === 'object'){
      currentCities = currentCity.map((city)=>{
-      return <label htmlFor={city} key={city}>
-            {city}
-            <input type='radio' name="location" id={city} value={city} onClick={handleClick} />
-          </label>
+       // check Vienna by default
+       if (city === 'Vienna'){
+         return <label htmlFor={city} key={city}>
+               {city}
+               <input type='radio' name="location" id={city} value={city} onClick={handleClick} checked = 'checked'/>
+             </label>
+       }
+       else {
+         return <label htmlFor={city} key={city}>
+               {city}
+               <input type='radio' name="location" id={city} value={city} onClick={handleClick} />
+             </label>
+       }
+
         });
       }
   else{

@@ -231,7 +231,6 @@ const Header = ()=>{
 
           </div>
 
-
           <button type='submit'>FIND MY SPACE</button>
           
         </form>
