@@ -226,7 +226,7 @@ const Header = ()=>{
 
             <Type handleType = {changeType}/>
 
-            <Calendar handleDate = {changeDate}/>
+            <Calendar handleDate = {changeDate} selectedDate = {searchForm[2].content}/>
 
           </div>
 
