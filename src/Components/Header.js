@@ -75,7 +75,7 @@ window.onload = function(){
         toggleCalendar.style.display = 'none';
       }
     }
-    
+
     // avoid closing when click on country name or type paragraph
     else if(toggleLocations.style.display === 'block'){
 
@@ -144,18 +144,20 @@ function todayDate(){
 }
 
 
-const searchForm = [{title: 'Location', content: 'Vienna, Austria'},
-                  {title: 'Type', content: 'Private Office'},
-                  {title: 'Date', content: todayDate()}];
-
+const searchForm = [{title: 'Location'},{title: 'Type'},{title: 'Date'}];
 
 
 const Header = ()=>{
+
   const [loc, setLoc] = useState('Vienna, Austria');
   searchForm[0].content = loc;
 
   const [type, setType] = useState('Private Office');
   searchForm[1].content = type;
+
+  const [date, setDate] = useState(todayDate());
+  searchForm[2].content = date;
+
 
   // callback function to use setLoc from Location to Header component
   function changeLocation(newValue){
@@ -164,6 +166,10 @@ const Header = ()=>{
 
   function changeType(newValue){
     setType(newValue);
+  }
+
+  function changeDate(newValue){
+    setDate(newValue);
   }
 
 
@@ -220,8 +226,7 @@ const Header = ()=>{
 
             <Type handleType = {changeType}/>
 
-            {/*adaug calendar*/}
-            <Calendar/>
+            <Calendar handleDate = {changeDate} selectedDate = {searchForm[2].content}/>
 
           </div>
 

@@ -4,6 +4,7 @@ import React from 'react';
 const Type = (props) =>{
 
   function handleClick(e){
+    
     props.handleType(e.target.value + ' Office')
   }
 
