@@ -179,11 +179,41 @@ const Header = ()=>{
     return <SearchItem key={title} title={title} content={content}/>
   });
 
-  //locations mapped as components for -> first SearchItem
+  //locations mapped as components for first SearchItem
   const allLocations = locations.map(({country,city})=>{
     return <Location key={country} country={country} city={city} handleLoc={changeLocation}/>
   });
 
+  // button func setting default values for location and type if no user input
+  function hasDefault(){
+    // for type
+    const typeInputs = document.querySelectorAll("input[name='type']");
+    let checkedType = false;
+
+    for (let i=0; i<=typeInputs.length-1; i++){
+      if(typeInputs[i].checked){
+        checkedType = true;
+        break;
+      }
+    }
+    if (!checkedType){
+      typeInputs[0].checked = true;
+    }
+
+    // for location
+    const locationInputs = document.querySelectorAll("input[name='location']");
+    let checkedlocation = false;
+
+    for (let i=0; i<=locationInputs.length-1; i++){
+      if(locationInputs[i].checked){
+        checkedlocation = true;
+        break;
+      }
+    }
+    if (!checkedlocation){
+      locationInputs[0].checked = true;
+    }
+  }
 
   return(
 
@@ -225,14 +255,14 @@ const Header = ()=>{
 
             <div className='show-locations'>{allLocations}</div>
 
-            <Type handleType = {changeType}/>
+            <Type handleType = {changeType} selectedType = {searchForm[1].content}/>
 
             <Calendar handleDate = {changeDate} selectedDate = {searchForm[2].content}/>
 
           </div>
 
-          <button type='submit'>FIND MY SPACE</button>
-          
+          <button type='submit' onClick={hasDefault}>FIND MY SPACE</button>
+
         </form>
 
 
