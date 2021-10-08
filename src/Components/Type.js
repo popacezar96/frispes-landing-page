@@ -8,7 +8,7 @@ const Type = (props) =>{
   }
 
   return (
-    <div class='show-type'>
+    <div className='show-type'>
       <p>Type</p>
       <div>
         <label htmlFor='private'>
