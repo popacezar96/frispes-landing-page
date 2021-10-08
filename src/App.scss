@@ -285,6 +285,7 @@ $formTops: (
     .show-locations{
       display: none;
     }
+
     .location{
         //display: none;
 
@@ -361,6 +362,20 @@ $formTops: (
       }
     }
   }
+  // scrollbar styling for form elements
+  .form-rectangle::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: $gray3;
+  }
+  .form-rectangle::-webkit-scrollbar{
+    width: 6px;
+    background-color: $my-white;
+  }
+
+  .form-rectangle::-webkit-scrollbar-thumb{
+    background-color: $primary;
+  }
+
 }
 
 }

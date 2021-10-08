@@ -104,7 +104,7 @@
       @include normal-regular;
       margin: 1.8px;
 
-      width: calc(22em / 7);
+      width: 3.1em;
       height: 2.8em;
 
       display: flex;
@@ -131,7 +131,7 @@
   background-color: $primary;
   border: 2px solid $my-white;
 }
-
+//hide input of type date
 input[type="date"]{
   display: none;
 }

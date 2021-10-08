@@ -63,7 +63,7 @@ window.onload = function(){
 
         toggleCalendar.style.display = 'block';
         rect.style.display = 'block';
-
+        
         //hide the other labels
         toggleLocations.style.display = 'none';
         toggleTypes.style.display = 'none';
