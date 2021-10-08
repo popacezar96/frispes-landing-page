@@ -17,7 +17,6 @@ window.onload = function(){
   const toggleTypes = document.querySelector(".show-type");
   const toggleCalendar = document.querySelector(".calendar");
 
-  const countryNames = document.querySelectorAll(".location p");
   const typeP = document.querySelector(".show-type p");
 
   const calendarMonth = document.querySelector(".month");
@@ -81,7 +80,7 @@ window.onload = function(){
 
       let countryClick = false;
 
-      // don't hide rectungle only if u click on rect, toggleLocations or p (country-name)
+      // don't hide rectangle only if u click on rect, toggleLocations or p (country-name)
       if (e.target === rect || e.target === toggleLocations || e.target.className === 'country-name'){
         countryClick = true;
       }

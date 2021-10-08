@@ -151,12 +151,12 @@ const Calendar = (props)=>{
   return(
       <div className="calendar">
         <div className="month">
-          <img src={leftArrow} className='left-arrow'/>
+          <img src={leftArrow} className='left-arrow' alt = "L"/>
           <div className="date">
             <h1></h1>
             <p></p>
           </div>
-          <img src= {rightArrow} className='right-arrow'/>
+          <img src= {rightArrow} className='right-arrow' alt = "R"/>
         </div>
         <div className="weekdays">
           <div>Sun</div>
@@ -169,7 +169,7 @@ const Calendar = (props)=>{
         </div>
         <div className="days"></div>
 
-        <input type='date' name='date' value = {year + '-' + month + '-' + day}/>
+        <input type='date' name='date' value = {year + '-' + month + '-' + day} readOnly/>
       </div>
   );
 }
