@@ -200,17 +200,23 @@ $formTops: (
     background: $primary120;
     cursor: pointer;
 
+    //prevent inheritance
+    padding: 0;
+    font-family: unset;
+    font-style: unset;
+    font-weight: unset;
+    font-size: unset;
+
+
     span{
       position: absolute;
       left: 4.3%;
       top: 8px;
 
-      width: 16.7%;
-
       @include normal-medium;
 
       opacity: 0.35;
-      // so that no event is activated when clicking on it except that of the parent
+      // no event activates on this element - only activate the event of the parent
       pointer-events: none;
 
     }
@@ -220,13 +226,15 @@ $formTops: (
       left: 4.3%;
       top: 34px;
 
-      //width: 35%;
+      //prevent inheritance
+      width: auto;
 
       @include normal-medium;
       // so that no event is activated when clicking on it except that of the parent
       pointer-events: none;
     }
   }
+
 // adaug sageata la fiecare select al forumului
   .search-item::after{
     content: url('./dropdown-icon.svg');
@@ -270,6 +278,7 @@ $formTops: (
     color: $my-white;
 
     border: none;
+    cursor: pointer;
   }
 
   .form-rectangle{
