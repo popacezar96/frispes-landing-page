@@ -23,6 +23,17 @@ window.onload = function(){
   const calendarWeekdays = document.querySelector(".weekdays");
   const calendarDays = document.querySelector(".days");
 
+  //switch focus after selecting items from keyboard
+  document.onkeydown = function (e){
+    if(e.target === first){
+      if (e.keyCode===13){
+        rect.style.display = "block";
+        toggleLocations.style.display = "block";
+        document.querySelector("label[for='Vienna']").focus();
+      }
+    }
+  }
+
 
   document.onclick = function(e){
     if(e.target === first){
