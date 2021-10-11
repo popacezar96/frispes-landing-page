@@ -56,15 +56,8 @@ const renderCalendar = () => {
   }
 
   for (let i = 1; i <= lastDay; i++) {
-    if (
-      i === new Date().getDate() &&
-      date.getMonth() === new Date().getMonth()
-    ) {
-        days += `<div>${i}</div>`;
-      }
-    else {
-        days += `<div>${i}</div>`;
-    }
+
+      days += `<div tabindex="0">${i}</div>`;
   }
 
   for (let j = 1; j <= nextDays; j++) {
@@ -117,14 +110,27 @@ const Calendar = (props)=>{
         //adding click events on targeted days
         allDisplayedDays[i].onclick = (e)=>{
           props.handleDate(e.target.textContent +' '+ currentMonth + ' ' + currentYear);
-          };
-      };
+        };
 
+        // adding keystroke events oon targeted days
+        allDisplayedDays[i].onkeydown =(e)=>{
+          //on Enter press
+          if (e.keyCode===13){
+            //behave as if it was clicked
+            e.target.click();
+          }
+        };
+
+      };
     }
   }
 
   useEffect(()=>{
-    document.querySelector(".left-arrow").onclick = () => {
+    const leftArrow = document.querySelector(".left-arrow");
+    const rightArrow = document.querySelector(".right-arrow");
+
+    //add leftArrow events
+    leftArrow.onclick = () => {
 
       date.setMonth(date.getMonth() - 1);
       renderCalendar();
@@ -133,7 +139,14 @@ const Calendar = (props)=>{
       addClickOnDays();
     };
 
-    document.querySelector(".right-arrow").onclick = () => {
+    leftArrow.onkeydown = (e)=>{
+      if (e.keyCode === 13){
+        e.target.click();
+      }
+    }
+
+    //add rightArrow events
+    rightArrow.onclick = () => {
 
       date.setMonth(date.getMonth() + 1);
       renderCalendar();
@@ -141,6 +154,12 @@ const Calendar = (props)=>{
       //add click event on displayed days
       addClickOnDays();
     };
+
+    rightArrow.onkeydown = (e)=>{
+      if (e.keyCode === 13){
+        e.target.click();
+      }
+    }
 
     renderCalendar();
 
@@ -151,12 +170,12 @@ const Calendar = (props)=>{
   return(
       <div className="calendar">
         <div className="month">
-          <img src={leftArrow} className='left-arrow' alt = "L"/>
+          <img src={leftArrow} className='left-arrow' alt = "L" tabIndex="0"/>
           <div className="date">
             <h1></h1>
             <p></p>
           </div>
-          <img src= {rightArrow} className='right-arrow' alt = "R"/>
+          <img src= {rightArrow} className='right-arrow' alt = "R" tabIndex="0"/>
         </div>
         <div className="weekdays">
           <div>Sun</div>

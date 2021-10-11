@@ -63,7 +63,7 @@ window.onload = function(){
 
         toggleCalendar.style.display = 'block';
         rect.style.display = 'block';
-        
+
         //hide the other labels
         toggleLocations.style.display = 'none';
         toggleTypes.style.display = 'none';
@@ -174,7 +174,7 @@ const Header = ()=>{
 
 
   // 3 search items mapped as components in the first form
-  const searchItems = searchForm.map(({title,content,formFunc})=>{
+  const searchItems = searchForm.map(({title,content})=>{
     return <SearchItem key={title} title={title} content={content}/>
   });
 
