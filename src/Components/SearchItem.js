@@ -1,10 +1,14 @@
 import {React} from 'react';
 
 const SearchItem = (props)=>{
+
+  const title = props.title;
+  const content = props.content;
+
   return(
       <button className='search-item'>
-        <span>{props.title}</span>
-        <p>{props.content}</p>
+        <span>{title}</span>
+        <p>{content}</p>
       </button>
   );
 };

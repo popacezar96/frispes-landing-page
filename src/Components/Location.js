@@ -16,6 +16,9 @@ const Location = (props) =>{
   function handleKeyDown(e){
     if (e.keyCode ===13){
       inputFileRef.current[0].current.click();
+      document.querySelector('.search-item:nth-child(3)').focus();
+      //avoid activating keydown on focused element when focusing
+      e.preventDefault();
     }
   }
 
@@ -24,13 +27,16 @@ const Location = (props) =>{
 
   // sometimes props.city is an array of cities so if that is the case, there will be a label for each one
   // onKeyDown func makes input behave as if it was clicked by accessing its corresponding refference from the inputFileRef array of refferences.
-  
+
   if(typeof currentCity === 'object'){
      currentCities = currentCity.map((city,i)=>{
          return <label htmlFor={city} key={i} tabIndex="0"
                 onKeyDown={function(e) {
                if (e.keyCode ===13){
                  inputFileRef.current[i].current.click();
+                 //switch focus on Type components
+                 document.querySelector('.search-item:nth-child(3)').focus();
+                 e.preventDefault();
                 }
               }}>
                {city}
