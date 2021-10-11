@@ -25,11 +25,21 @@ window.onload = function(){
 
   //switch focus after selecting items from keyboard
   document.onkeydown = function (e){
-    if(e.target === first){
-      if (e.keyCode===13){
+    if(e.keyCode===13){
+      if (e.target === first){
         rect.style.display = "block";
         toggleLocations.style.display = "block";
         document.querySelector("label[for='Vienna']").focus();
+      }
+      else if(e.target === second){
+        rect.style.display = "block";
+        toggleTypes.style.display = "block";
+        document.querySelector("label[for='private']").focus();
+      }
+      else if(e.target === third){
+        rect.style.display = "block";
+        toggleCalendar.style.display = "block";
+        document.querySelector(".right-arrow").focus();
       }
     }
   }

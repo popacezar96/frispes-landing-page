@@ -112,12 +112,15 @@ const Calendar = (props)=>{
           props.handleDate(e.target.textContent +' '+ currentMonth + ' ' + currentYear);
         };
 
-        // adding keystroke events oon targeted days
+        // adding keystroke events on targeted days
         allDisplayedDays[i].onkeydown =(e)=>{
           //on Enter press
           if (e.keyCode===13){
             //behave as if it was clicked
             e.target.click();
+            document.querySelector("form button").focus();
+            //prevent default activation of submit button
+            e.preventDefault()
           }
         };
 
