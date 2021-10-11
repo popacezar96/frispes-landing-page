@@ -16,6 +16,7 @@ const Location = (props) =>{
   function handleKeyDown(e){
     if (e.keyCode ===13){
       inputFileRef.current[0].current.click();
+      //switch focus on Type components
       document.querySelector('.search-item:nth-child(3)').focus();
       //avoid activating keydown on focused element when focusing
       e.preventDefault();

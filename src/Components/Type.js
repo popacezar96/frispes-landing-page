@@ -19,6 +19,10 @@ const Type = (props) =>{
         onKeyDown={function(e){
           if(e.keyCode===13){
             typeRef.current[0].current.click();
+            //focus on Calendar button
+            document.querySelector('.search-item:nth-child(4)').focus();
+            //prevent default activation of Date button
+            e.preventDefault();
           }
         }} >
           Private Office
@@ -38,6 +42,10 @@ const Type = (props) =>{
         onKeyDown={function(e){
           if(e.keyCode===13){
             typeRef.current[1].current.click();
+            //focus on Calendar button
+            document.querySelector('.search-item:nth-child(4)').focus();
+            //prevent default activation of Date button
+            e.preventDefault();
           }
         }}>
           Public Office
