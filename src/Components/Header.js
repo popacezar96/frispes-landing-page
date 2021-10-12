@@ -25,14 +25,14 @@ window.onload = function(){
 
 
   document.onkeydown = function (e){
-    //switch focus after selecting items from keyboard
+    //switch focus after selecting items from keyboard if pressing enter
     if(e.keyCode===13){
       if (e.target === first){
         rect.style.display = "block";
         toggleLocations.style.display = "block";
         document.querySelector("label[for='Vienna']").focus();
 
-        //hide the other labels
+        //hide the other components
         toggleTypes.style.display = 'none';
         toggleCalendar.style.display = 'none';
       }
@@ -42,7 +42,7 @@ window.onload = function(){
         toggleTypes.style.display = "block";
         document.querySelector("label[for='private']").focus();
 
-        //hide the other labels
+        //hide the other components
         toggleLocations.style.display = 'none';
         toggleCalendar.style.display = 'none';
       }
@@ -51,10 +51,19 @@ window.onload = function(){
         toggleCalendar.style.display = "block";
         document.querySelector(".right-arrow").focus();
 
-        //hide the other labels
+        //hide the other components
         toggleLocations.style.display = 'none';
         toggleTypes.style.display = 'none';
       }
+    }
+    //hide form related windows if esc key is pressed
+    else if (e.keyCode===27){
+
+      rect.style.display = "none";
+
+      toggleLocations.style.display = 'none';
+      toggleTypes.style.display = 'none';
+      toggleCalendar.style.display = 'none';
     }
   }
 
@@ -66,7 +75,7 @@ window.onload = function(){
         rect.style.display = 'block';
         toggleLocations.style.display = 'block';
 
-        //hide the other labels
+        //hide the other components
         toggleTypes.style.display = 'none';
         toggleCalendar.style.display = 'none';
       }
@@ -82,7 +91,7 @@ window.onload = function(){
         toggleTypes.style.display = 'block';
         rect.style.display = 'block';
 
-        //hide the other labels
+        //hide the other components
         toggleLocations.style.display = 'none';
         toggleCalendar.style.display = 'none';
       }
@@ -99,7 +108,7 @@ window.onload = function(){
         toggleCalendar.style.display = 'block';
         rect.style.display = 'block';
 
-        //hide the other labels
+        //hide the other components
         toggleLocations.style.display = 'none';
         toggleTypes.style.display = 'none';
       }
