@@ -72,7 +72,14 @@ window.onload = function(){
     if(e.target === first){
 
       if (toggleLocations.style.display === 'none' || toggleLocations.style.display === ''){
-        rect.style.display = 'block';
+
+        rect.style.width = '100%';
+        rect.style.opacity = '1';
+        rect.style.left = '100%';
+        //rect.classList.add('form-rect-fade-in');
+        //rect.classList.remove('form-rect-fade-out');
+
+
         toggleLocations.style.display = 'block';
 
         //hide the other components
@@ -80,7 +87,13 @@ window.onload = function(){
         toggleCalendar.style.display = 'none';
       }
       else if(toggleLocations.style.display === 'block'){
-        rect.style.display = 'none';
+
+        rect.style.width = '0%';
+        rect.style.opacity = '0';
+        rect.style.left = '50%';
+        //rect.classList-=' form-rect-fade-in';
+        //rect.classList.remove('form-rect-fade-in');
+        //rect.classList.add('form-rect-fade-out');
         toggleLocations.style.display = 'none';
       }
     }
@@ -88,8 +101,10 @@ window.onload = function(){
     else if (e.target === second){
       if (toggleTypes.style.display === '' || toggleTypes.style.display === 'none'){
 
+        rect.style.width = '100%';
+        rect.style.opacity = '1';
+        rect.style.left = '100%';
         toggleTypes.style.display = 'block';
-        rect.style.display = 'block';
 
         //hide the other components
         toggleLocations.style.display = 'none';
@@ -97,7 +112,9 @@ window.onload = function(){
       }
 
       else if(toggleTypes.style.display === 'block'){
-        rect.style.display = 'none';
+        rect.style.width = '0%';
+        rect.style.opacity = '0';
+        rect.style.left = '50%';
         toggleTypes.style.display = 'none';
       }
     }
@@ -105,8 +122,11 @@ window.onload = function(){
     else if(e.target === third){
       if (toggleCalendar.style.display === '' || toggleCalendar.style.display === 'none'){
 
+        rect.style.width = '100%';
+        rect.style.opacity = '1';
+        rect.style.left = '100%';
+
         toggleCalendar.style.display = 'block';
-        rect.style.display = 'block';
 
         //hide the other components
         toggleLocations.style.display = 'none';
@@ -114,7 +134,9 @@ window.onload = function(){
       }
 
       else if(toggleCalendar.style.display === 'block'){
-        rect.style.display = 'none';
+        rect.style.width = '0%';
+        rect.style.opacity = '0';
+        rect.style.left = '50%';
         toggleCalendar.style.display = 'none';
       }
     }
