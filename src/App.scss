@@ -291,8 +291,7 @@ $formTops: (
     background: $primary120;
 
     overflow-y: auto;
-
-    transition: opacity .5s linear, left .5s linear;
+    transition: 1s;
 
     .show-locations{
       display: none;
