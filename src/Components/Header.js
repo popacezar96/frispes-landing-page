@@ -28,7 +28,11 @@ window.onload = function(){
     //switch focus after selecting items from keyboard if pressing enter
     if(e.keyCode===13){
       if (e.target === first){
-        rect.style.display = "block";
+
+        rect.style.width = '100%';
+        rect.style.opacity = '1';
+        rect.style.left = '100%';
+
         toggleLocations.style.display = "block";
         document.querySelector("label[for='Vienna']").focus();
 
@@ -38,7 +42,11 @@ window.onload = function(){
       }
 
       else if(e.target === second){
-        rect.style.display = "block";
+        
+        rect.style.width = '100%';
+        rect.style.opacity = '1';
+        rect.style.left = '100%';
+
         toggleTypes.style.display = "block";
         document.querySelector("label[for='private']").focus();
 
@@ -47,7 +55,11 @@ window.onload = function(){
         toggleCalendar.style.display = 'none';
       }
       else if(e.target === third){
-        rect.style.display = "block";
+
+        rect.style.width = '100%';
+        rect.style.opacity = '1';
+        rect.style.left = '100%';
+
         toggleCalendar.style.display = "block";
         document.querySelector(".right-arrow").focus();
 
@@ -59,7 +71,9 @@ window.onload = function(){
     //hide form related windows if esc key is pressed
     else if (e.keyCode===27){
 
-      rect.style.display = "none";
+      rect.style.width = '0%';
+      rect.style.opacity = '0';
+      rect.style.left = '50%';
 
       toggleLocations.style.display = 'none';
       toggleTypes.style.display = 'none';
