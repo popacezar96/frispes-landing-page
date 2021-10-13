@@ -76,10 +76,6 @@ window.onload = function(){
         rect.style.width = '100%';
         rect.style.opacity = '1';
         rect.style.left = '100%';
-        //rect.classList.add('form-rect-fade-in');
-        //rect.classList.remove('form-rect-fade-out');
-
-
         toggleLocations.style.display = 'block';
 
         //hide the other components
@@ -91,9 +87,7 @@ window.onload = function(){
         rect.style.width = '0%';
         rect.style.opacity = '0';
         rect.style.left = '50%';
-        //rect.classList-=' form-rect-fade-in';
-        //rect.classList.remove('form-rect-fade-in');
-        //rect.classList.add('form-rect-fade-out');
+
         toggleLocations.style.display = 'none';
       }
     }
@@ -104,6 +98,7 @@ window.onload = function(){
         rect.style.width = '100%';
         rect.style.opacity = '1';
         rect.style.left = '100%';
+
         toggleTypes.style.display = 'block';
 
         //hide the other components
@@ -152,7 +147,9 @@ window.onload = function(){
       }
 
       if(countryClick === false){
-        rect.style.display = 'none';
+        rect.style.width = '0%';
+        rect.style.opacity = '0';
+        rect.style.left = '50%';
         toggleLocations.style.display = 'none';
       }
     }
@@ -166,7 +163,9 @@ window.onload = function(){
       }
 
       if(typeClick === false){
-        rect.style.display = 'none';
+        rect.style.width = '0%';
+        rect.style.opacity = '0';
+        rect.style.left = '50%';
         toggleTypes.style.display = 'none';
       }
     }
@@ -184,13 +183,17 @@ window.onload = function(){
       }
 
       if(selectedDay ===false){
-        rect.style.display = 'none';
+        rect.style.width = '0%';
+        rect.style.opacity = '0';
+        rect.style.left = '50%';
         toggleCalendar.style.display = 'none';
       }
     }
 
     else {
-      rect.style.display = 'none';
+      rect.style.width = '0%';
+      rect.style.opacity = '0';
+      rect.style.left = '50%';
 
       //hide all that is inside rect
       toggleLocations.style.display = 'none';
