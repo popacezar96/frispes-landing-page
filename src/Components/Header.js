@@ -29,9 +29,7 @@ window.onload = function(){
     if(e.keyCode===13){
       if (e.target === first){
 
-        rect.style.width = '100%';
-        rect.style.opacity = '1';
-        rect.style.left = '100%';
+        rect.classList.add('form-rect-fade-in');
 
         toggleLocations.style.display = "block";
         document.querySelector("label[for='Vienna']").focus();
@@ -42,10 +40,8 @@ window.onload = function(){
       }
 
       else if(e.target === second){
-        
-        rect.style.width = '100%';
-        rect.style.opacity = '1';
-        rect.style.left = '100%';
+
+        rect.classList.add('form-rect-fade-in');
 
         toggleTypes.style.display = "block";
         document.querySelector("label[for='private']").focus();
@@ -56,9 +52,7 @@ window.onload = function(){
       }
       else if(e.target === third){
 
-        rect.style.width = '100%';
-        rect.style.opacity = '1';
-        rect.style.left = '100%';
+        rect.classList.add('form-rect-fade-in');
 
         toggleCalendar.style.display = "block";
         document.querySelector(".right-arrow").focus();
@@ -71,9 +65,7 @@ window.onload = function(){
     //hide form related windows if esc key is pressed
     else if (e.keyCode===27){
 
-      rect.style.width = '0%';
-      rect.style.opacity = '0';
-      rect.style.left = '50%';
+      rect.classList.remove('form-rect-fade-in');
 
       toggleLocations.style.display = 'none';
       toggleTypes.style.display = 'none';
@@ -87,9 +79,8 @@ window.onload = function(){
 
       if (toggleLocations.style.display === 'none' || toggleLocations.style.display === ''){
 
-        rect.style.width = '100%';
-        rect.style.opacity = '1';
-        rect.style.left = '100%';
+        rect.classList.add('form-rect-fade-in');
+
         toggleLocations.style.display = 'block';
 
         //hide the other components
@@ -98,9 +89,7 @@ window.onload = function(){
       }
       else if(toggleLocations.style.display === 'block'){
 
-        rect.style.width = '0%';
-        rect.style.opacity = '0';
-        rect.style.left = '50%';
+        rect.classList.remove('form-rect-fade-in');
 
         toggleLocations.style.display = 'none';
       }
@@ -109,9 +98,7 @@ window.onload = function(){
     else if (e.target === second){
       if (toggleTypes.style.display === '' || toggleTypes.style.display === 'none'){
 
-        rect.style.width = '100%';
-        rect.style.opacity = '1';
-        rect.style.left = '100%';
+        rect.classList.add('form-rect-fade-in');
 
         toggleTypes.style.display = 'block';
 
@@ -121,9 +108,9 @@ window.onload = function(){
       }
 
       else if(toggleTypes.style.display === 'block'){
-        rect.style.width = '0%';
-        rect.style.opacity = '0';
-        rect.style.left = '50%';
+
+        rect.classList.remove('form-rect-fade-in');
+
         toggleTypes.style.display = 'none';
       }
     }
@@ -131,9 +118,7 @@ window.onload = function(){
     else if(e.target === third){
       if (toggleCalendar.style.display === '' || toggleCalendar.style.display === 'none'){
 
-        rect.style.width = '100%';
-        rect.style.opacity = '1';
-        rect.style.left = '100%';
+        rect.classList.add('form-rect-fade-in');
 
         toggleCalendar.style.display = 'block';
 
@@ -143,9 +128,9 @@ window.onload = function(){
       }
 
       else if(toggleCalendar.style.display === 'block'){
-        rect.style.width = '0%';
-        rect.style.opacity = '0';
-        rect.style.left = '50%';
+
+        rect.classList.remove('form-rect-fade-in');
+
         toggleCalendar.style.display = 'none';
       }
     }
@@ -161,9 +146,9 @@ window.onload = function(){
       }
 
       if(countryClick === false){
-        rect.style.width = '0%';
-        rect.style.opacity = '0';
-        rect.style.left = '50%';
+
+        rect.classList.remove('form-rect-fade-in');
+
         toggleLocations.style.display = 'none';
       }
     }
@@ -177,9 +162,9 @@ window.onload = function(){
       }
 
       if(typeClick === false){
-        rect.style.width = '0%';
-        rect.style.opacity = '0';
-        rect.style.left = '50%';
+
+        rect.classList.remove('form-rect-fade-in');
+
         toggleTypes.style.display = 'none';
       }
     }
@@ -197,17 +182,16 @@ window.onload = function(){
       }
 
       if(selectedDay ===false){
-        rect.style.width = '0%';
-        rect.style.opacity = '0';
-        rect.style.left = '50%';
+
+        rect.classList.remove('form-rect-fade-in');
+
         toggleCalendar.style.display = 'none';
       }
     }
 
     else {
-      rect.style.width = '0%';
-      rect.style.opacity = '0';
-      rect.style.left = '50%';
+
+      rect.classList.remove('form-rect-fade-in');
 
       //hide all that is inside rect
       toggleLocations.style.display = 'none';

@@ -374,24 +374,11 @@ $formTops: (
     }
   }
 
+  // fading effect used when clicking or pressing 'enter' on a serach-form component
   .form-rect-fade-in{
-
     width: 100%;
     left: 100%;
     opacity: 1;
-
-    transition: opacity .5s linear, left .5s linear;
-  }
-
-  .form-rect-fade-out{
-
-    transition: opacity .5s linear, left .5s linear;
-
-      width: 0%;
-      left: 50%;
-      opacity: 0;
-
-
   }
 
   // scrollbar styling for form elements
