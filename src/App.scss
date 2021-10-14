@@ -233,16 +233,14 @@ $formTops: (
     }
   }
 
-// adaug sageata la fiecare select al forumului
-  .search-item::after{
-    content: url('./dropdown-icon.svg');
+// arrow style for all search items
+  .dropdown-arrow{
 
     position: absolute;
     right: 4.3%;
-    top: 22px;
+    top: 45%;
 
-    width: 24px;
-    height: 24px;
+    pointer-events: none;
   }
 
   // different distance from the top for each item in the search-form
