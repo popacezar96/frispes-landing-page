@@ -284,14 +284,14 @@ $formTops: (
     position: absolute;
 
     width: 0%;
-    left: 50%;
+    left: 85%;
     opacity: 0;
 
     height: 28.68em;
     background: $primary120;
 
     overflow-y: auto;
-    transition: 0.5s;
+    transition: width .15s linear, left .4s, opacity .5s;
 
     .show-locations{
       display: none;

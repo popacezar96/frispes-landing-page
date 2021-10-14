@@ -129,9 +129,10 @@ window.onload = function(){
 
       else if(toggleCalendar.style.display === 'block'){
 
+                toggleCalendar.style.display = 'none';
+
         rect.classList.remove('form-rect-fade-in');
 
-        toggleCalendar.style.display = 'none';
       }
     }
 
