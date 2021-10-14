@@ -3,6 +3,10 @@
 
 .calendar {
   display: none;
+  //opacity: 0;
+
+  transition: 0.4s;
+
   margin-left: 8.98%;
   margin-right: 8.98%;
   margin-top: 25px;
