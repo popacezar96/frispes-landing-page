@@ -23,15 +23,31 @@ window.onload = function(){
   const calendarWeekdays = document.querySelector(".weekdays");
   const calendarDays = document.querySelector(".days");
 
+  const buttonArrow = document.querySelectorAll('.search-item .dropdown-arrow');
+
+
+  //rotate arrow with whose index corresponds to a certain element
+  function rotateArrow(el){
+
+    buttonArrow.forEach((item,i) => {
+      if(i===el){
+        item.style.transform = 'rotate(-90deg)';
+      }
+      else{
+        item.style.transform = 'rotate(0deg)';
+      }
+    });
+  }
 
   document.onkeydown = function (e){
     //switch focus after selecting items from keyboard if pressing enter
     if(e.keyCode===13){
       if (e.target === first){
 
+        rotateArrow(0);
         rect.classList.add('form-rect-fade-in');
-
         toggleLocations.style.display = "block";
+
         document.querySelector("label[for='Vienna']").focus();
 
         //hide the other components
@@ -41,9 +57,10 @@ window.onload = function(){
 
       else if(e.target === second){
 
+        rotateArrow(1);
         rect.classList.add('form-rect-fade-in');
-
         toggleTypes.style.display = "block";
+
         document.querySelector("label[for='private']").focus();
 
         //hide the other components
@@ -52,9 +69,10 @@ window.onload = function(){
       }
       else if(e.target === third){
 
+        rotateArrow(2);
         rect.classList.add('form-rect-fade-in');
-
         toggleCalendar.style.display = "block";
+
         document.querySelector(".right-arrow").focus();
 
         //hide the other components
@@ -67,20 +85,23 @@ window.onload = function(){
 
       rect.classList.remove('form-rect-fade-in');
 
+      //return search-form arrows to original position
+      buttonArrow.forEach((item) => {
+        item.style.transform = 'rotate(0deg)';
+      });
+
       toggleLocations.style.display = 'none';
       toggleTypes.style.display = 'none';
       toggleCalendar.style.display = 'none';
     }
   }
 
-
   document.onclick = function(e){
     if(e.target === first){
-
       if (toggleLocations.style.display === 'none' || toggleLocations.style.display === ''){
 
         rect.classList.add('form-rect-fade-in');
-
+        rotateArrow(0);
         toggleLocations.style.display = 'block';
 
         //hide the other components
@@ -89,6 +110,7 @@ window.onload = function(){
       }
       else if(toggleLocations.style.display === 'block'){
 
+        buttonArrow[0].style.transform = 'rotate(0deg)';
         rect.classList.remove('form-rect-fade-in');
 
         toggleLocations.style.display = 'none';
@@ -98,6 +120,7 @@ window.onload = function(){
     else if (e.target === second){
       if (toggleTypes.style.display === '' || toggleTypes.style.display === 'none'){
 
+        rotateArrow(1);
         rect.classList.add('form-rect-fade-in');
 
         toggleTypes.style.display = 'block';
@@ -109,6 +132,7 @@ window.onload = function(){
 
       else if(toggleTypes.style.display === 'block'){
 
+        buttonArrow[1].style.transform = 'rotate(0deg)';
         rect.classList.remove('form-rect-fade-in');
 
         toggleTypes.style.display = 'none';
@@ -118,6 +142,7 @@ window.onload = function(){
     else if(e.target === third){
       if (toggleCalendar.style.display === '' || toggleCalendar.style.display === 'none'){
 
+        rotateArrow(2);
         rect.classList.add('form-rect-fade-in');
 
         toggleCalendar.style.display = 'block';
@@ -129,7 +154,8 @@ window.onload = function(){
 
       else if(toggleCalendar.style.display === 'block'){
 
-                toggleCalendar.style.display = 'none';
+        buttonArrow[2].style.transform = 'rotate(0deg)';
+        toggleCalendar.style.display = 'none';
 
         rect.classList.remove('form-rect-fade-in');
 
@@ -149,7 +175,7 @@ window.onload = function(){
       if(countryClick === false){
 
         rect.classList.remove('form-rect-fade-in');
-
+        buttonArrow[0].style.transform = 'rotate(0deg)';
         toggleLocations.style.display = 'none';
       }
     }
@@ -165,7 +191,7 @@ window.onload = function(){
       if(typeClick === false){
 
         rect.classList.remove('form-rect-fade-in');
-
+        buttonArrow[1].style.transform = 'rotate(0deg)';
         toggleTypes.style.display = 'none';
       }
     }
@@ -185,7 +211,7 @@ window.onload = function(){
       if(selectedDay ===false){
 
         rect.classList.remove('form-rect-fade-in');
-
+        buttonArrow[2].style.transform = 'rotate(0deg)';
         toggleCalendar.style.display = 'none';
       }
     }
@@ -193,6 +219,10 @@ window.onload = function(){
     else {
 
       rect.classList.remove('form-rect-fade-in');
+      //each arrow in search-form returns to norma position if clicked outside the form
+      buttonArrow.forEach((item) => {
+        item.style.transform = 'rotate(0deg)';
+      });
 
       //hide all that is inside rect
       toggleLocations.style.display = 'none';
