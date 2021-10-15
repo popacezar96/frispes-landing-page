@@ -9,7 +9,7 @@ const SearchItem = (props)=>{
       <button className='search-item'>
         <span>{title}</span>
         <p>{content}</p>
-        <img src={dropdown} className='dropdown-arrow' alt="D"/>
+        <img src={dropdown} className='dropdown-arrow' alt=" "/>
       </button>
   );
 };
