@@ -1,9 +1,13 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import SearchItem from './SearchItem';
 import Location from './Location';
 import {locations} from '../locations';
 import Type from './Type';
 import Calendar from './Calendar';
+
+import  office1 from '../office1.png';
+import  office2 from '../office2.png';
+import  office3 from '../office3.jpg';
 
 
 window.onload = function(){
@@ -24,7 +28,6 @@ window.onload = function(){
   const calendarDays = document.querySelector(".days");
 
   const buttonArrow = document.querySelectorAll('.search-item .dropdown-arrow');
-
 
   //rotate arrow with whose index corresponds to a certain element
   function rotateArrow(el){
@@ -232,6 +235,8 @@ window.onload = function(){
   }
 }
 
+
+
 //today's initial date
 function todayDate(){
   const date = new Date();
@@ -243,7 +248,6 @@ function todayDate(){
 
 
 const searchForm = [{title: 'Location'},{title: 'Type'},{title: 'Date'}];
-
 
 const Header = ()=>{
 
@@ -311,7 +315,42 @@ const Header = ()=>{
       locationInputs[0].checked = true;
     }
   }
+  useEffect(()=>{
+    // to switch between images in first image slider
+    const firstSliderImgs = document.querySelectorAll(".first-img-slider img");
+    const firstSliderSpans = document.querySelectorAll(".slider-indicator span");
 
+    let counter = 0;
+
+    setInterval(()=>{
+      //console.log(counter);
+      firstSliderImgs.forEach((item, i) => {
+
+        //console.log(item.style.display === 'inline-block');
+        // NU intra in if for some reason 
+        if(item.style.display === 'block'){
+          //console.log(counter);
+          item.style.opacity = 0;
+          firstSliderSpans[i].classlist.remove('image-span');
+
+          if(counter < 3){
+            firstSliderImgs[i+1].opacity = 1;
+            firstSliderSpans[i+1].classList.add('image-span');
+          }
+
+          else{
+            firstSliderImgs[0].opacity = 1;
+            firstSliderSpans[0].classList.add('image-span');
+
+            counter = 0;
+          }
+          //break;
+        }
+      });
+      counter+=1;
+    },2000);
+
+  });
   return(
 
     <header className="App-header">
@@ -362,11 +401,26 @@ const Header = ()=>{
 
         </form>
 
-
       </div>
+
+      <div className='first-img-slider'>
+        <img src={office1} alt=' '/>
+        <img src={office2} alt=' '/>
+        <img src={office3} alt=' '/>
+      </div>
+
+      <div className='slider-indicator'>
+        <span className='image-span'></span>
+        <span></span>
+        <span></span>
+      </div>
+
     </header>
 
   );
+
+
+
 }
 
 
