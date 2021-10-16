@@ -164,6 +164,7 @@ $formTops: (
 
 .search-form{
   position: absolute;
+  z-index: 2;
   left: 0px;
   top: 403px;
 
@@ -388,8 +389,72 @@ $formTops: (
   }
 
 }
+  //image slider in the header
+  .first-img-slider{
+    position: absolute;
+    right: 0;
 
-}
+    width: 75.29%;
+    max-height: 63.8%;
+
+    img:first-child{
+      position: absolute;
+      z-index: 1;
+      top: 338.95px;
+
+      opacity: 1;
+
+    }
+    img:nth-child(2){
+      position: absolute;
+      top: 311px;
+
+      opacity: 0;
+
+    }
+    img:nth-child(3){
+      position: absolute;
+      top: 311px;
+
+      opacity: 0;
+    }
+  }
+
+  //small rectangles that indicate the currently shown image in the slider
+  .slider-indicator{
+
+    position: absolute;
+    z-index: 2;
+    top: 875.7px;
+    left: 56.7%;
+
+    width: 100px;
+    height: 4.82px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    //the rectangles
+    span{
+      background: $my-white;
+      opacity: .5;
+
+      width: 20px;
+      height: 4px;
+      margin: 0px 4px;
+    }
+    //style for active span in slider
+    .image-span{
+      background: $secondary;
+      opacity: 1;
+
+      width: 40px;
+    }
+    
+    }
+  }
 
 
   @media screen and (max-width: 1345px){
