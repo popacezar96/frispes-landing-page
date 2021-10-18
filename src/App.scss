@@ -399,24 +399,28 @@ $formTops: (
 
     img:first-child{
       position: absolute;
-      z-index: 1;
       top: 338.95px;
 
-      opacity: 1;
+      //z-index: 1;
+      //opacity: 0;
 
     }
     img:nth-child(2){
       position: absolute;
       top: 311px;
 
-      opacity: 0;
+      //opacity: 0;
 
     }
     img:nth-child(3){
       position: absolute;
       top: 311px;
 
-      opacity: 0;
+      //opacity: 0;
+    }
+
+    .current-slider-img{
+      z-index: 1;
     }
   }
 
@@ -452,7 +456,7 @@ $formTops: (
 
       width: 40px;
     }
-    
+
     }
   }
 
