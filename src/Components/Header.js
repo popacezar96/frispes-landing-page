@@ -315,37 +315,41 @@ const Header = ()=>{
       locationInputs[0].checked = true;
     }
   }
-  // use setInterval after the component loaded
 
+  // use setInterval after the component loaded
   useEffect(()=>{
+
     // to switch between images in first image slider
     const firstSliderImgs = document.querySelectorAll(".first-img-slider img");
     const firstSliderSpans = document.querySelectorAll(".slider-indicator span");
 
-
     setInterval(()=>{
-      //console.log(counter);
+      // change styles of images and spans every 3 seconds
 
       for(let i=0; i<firstSliderImgs.length; i++){
         const currentImage = firstSliderImgs[i];
         const itemStyles = window.getComputedStyle(currentImage);
 
-        if(itemStyles.zIndex === '1'){
-          currentImage.classList.remove('current-slider-img');
+        if(itemStyles.opacity === '1'){
+          //currentImage.classList.remove('current-slider-img');
+          currentImage.style.opacity = '0';
           firstSliderSpans[i].classList.remove('image-span');
 
           if (i<2){
-            firstSliderImgs[i+1].classList.add('current-slider-img');
+            //firstSliderImgs[i+1].classList.add('current-slider-img');
+            firstSliderImgs[i+1].style.opacity = '1';
             firstSliderSpans[i+1].classList.add('image-span');
           }
+
           else {
-            firstSliderImgs[0].classList.add('current-slider-img');
+            //firstSliderImgs[0].classList.add('current-slider-img');
+            firstSliderImgs[0].style.opacity = '1';
             firstSliderSpans[0].classList.add('image-span');
           }
           break;
         }
       }
-    },3000);
+    },4000);
 
   });
   return(
