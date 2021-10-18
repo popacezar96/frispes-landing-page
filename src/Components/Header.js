@@ -315,40 +315,37 @@ const Header = ()=>{
       locationInputs[0].checked = true;
     }
   }
+  // use setInterval after the component loaded
+
   useEffect(()=>{
     // to switch between images in first image slider
     const firstSliderImgs = document.querySelectorAll(".first-img-slider img");
     const firstSliderSpans = document.querySelectorAll(".slider-indicator span");
 
-    let counter = 0;
 
     setInterval(()=>{
       //console.log(counter);
-      firstSliderImgs.forEach((item, i) => {
 
-        //console.log(item.style.display === 'inline-block');
-        // NU intra in if for some reason 
-        if(item.style.display === 'block'){
-          //console.log(counter);
-          item.style.opacity = 0;
-          firstSliderSpans[i].classlist.remove('image-span');
+      for(let i=0; i<firstSliderImgs.length; i++){
+        const currentImage = firstSliderImgs[i];
+        const itemStyles = window.getComputedStyle(currentImage);
 
-          if(counter < 3){
-            firstSliderImgs[i+1].opacity = 1;
+        if(itemStyles.zIndex === '1'){
+          currentImage.classList.remove('current-slider-img');
+          firstSliderSpans[i].classList.remove('image-span');
+
+          if (i<2){
+            firstSliderImgs[i+1].classList.add('current-slider-img');
             firstSliderSpans[i+1].classList.add('image-span');
           }
-
-          else{
-            firstSliderImgs[0].opacity = 1;
+          else {
+            firstSliderImgs[0].classList.add('current-slider-img');
             firstSliderSpans[0].classList.add('image-span');
-
-            counter = 0;
           }
-          //break;
+          break;
         }
-      });
-      counter+=1;
-    },2000);
+      }
+    },3000);
 
   });
   return(
@@ -404,7 +401,7 @@ const Header = ()=>{
       </div>
 
       <div className='first-img-slider'>
-        <img src={office1} alt=' '/>
+        <img src={office1} className='current-slider-img' alt=' '/>
         <img src={office2} alt=' '/>
         <img src={office3} alt=' '/>
       </div>
