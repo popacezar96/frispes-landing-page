@@ -331,18 +331,18 @@ const Header = ()=>{
         const itemStyles = window.getComputedStyle(currentImage);
 
         if(itemStyles.opacity === '1'){
-          //currentImage.classList.remove('current-slider-img');
+
           currentImage.style.opacity = '0';
           firstSliderSpans[i].classList.remove('image-span');
 
           if (i<2){
-            //firstSliderImgs[i+1].classList.add('current-slider-img');
+
             firstSliderImgs[i+1].style.opacity = '1';
             firstSliderSpans[i+1].classList.add('image-span');
           }
 
           else {
-            //firstSliderImgs[0].classList.add('current-slider-img');
+
             firstSliderImgs[0].style.opacity = '1';
             firstSliderSpans[0].classList.add('image-span');
           }
@@ -419,9 +419,6 @@ const Header = ()=>{
     </header>
 
   );
-
-
-
 }
 
 
