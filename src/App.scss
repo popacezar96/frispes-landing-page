@@ -169,7 +169,8 @@ $formTops: (
   top: 403px;
 
   width: 34.9%;
-  height: 28.68em;
+  //height: 28.68em;
+  height: 459px;
 
   background-color: $primary;
 
@@ -229,12 +230,12 @@ $formTops: (
       width: auto;
 
       @include normal-medium;
-      // so that no event is activated when clicking on it except that of the parent
+      // no event activates on this element - only activate the event of the parent
       pointer-events: none;
     }
   }
 
-// arrow style for all search items
+// arrow styling for all search items
   .dropdown-arrow{
 
     position: absolute;
@@ -258,7 +259,7 @@ $formTops: (
     bottom: 31px;
 
     width: 81.5%;
-    height: 3.31em;
+    height: 53px;
 
     font-family: Lato, serif;
     font-style: normal;
@@ -280,18 +281,18 @@ $formTops: (
     left: 85%;
     opacity: 0;
 
-    height: 28.68em;
+    height: 100%;
     background: $primary120;
 
     overflow-y: auto;
     transition: width .15s linear, left .4s, opacity .5s;
 
+    //hide locations untill clicked on location search-item
     .show-locations{
       display: none;
     }
 
     .location{
-        //display: none;
 
         margin-left: 8.98%;
         //height: 68px;
@@ -302,7 +303,6 @@ $formTops: (
 
       p{
         position: initial;
-        top: 42px;
 
         margin-bottom: 10px;
         @include normal-medium;
@@ -318,15 +318,16 @@ $formTops: (
       }
 
       label:nth-child(3){
-        margin-top: 7px;
+        margin-top: 5px;
       }
+      //hide radio button specific to each city
       input{
         display: none;
       }
 
     }
     .location:not(:first-child){
-      border-top: 1px solid rgba(255, 255, 255, .25);
+      border-top: .5px solid rgba(255, 255, 255, .25);
     }
 
     .show-type{
@@ -387,8 +388,8 @@ $formTops: (
   .form-rectangle::-webkit-scrollbar-thumb{
     background-color: $primary;
   }
-
 }
+
   //image slider in the header
   .first-img-slider{
     position: absolute;
