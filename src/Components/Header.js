@@ -405,7 +405,7 @@ const Header = ()=>{
       </div>
 
       <div className='first-img-slider'>
-        <img src={office1} className='current-slider-img' alt=' '/>
+        <img src={office1} alt=' '/>
         <img src={office2} alt=' '/>
         <img src={office3} alt=' '/>
       </div>
