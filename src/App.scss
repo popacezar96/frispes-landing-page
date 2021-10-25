@@ -141,6 +141,7 @@ $formTops: (
       color: $primary;
 
       @include heading1;
+      font-size: calc(208% + 1.3vw);
 
       span{
         color: $secondary120;
@@ -158,6 +159,8 @@ $formTops: (
 
       @include extraLarge-medium;
       line-height: 1.87rem;
+
+      font-size: calc(80% + .5vw);
     }
   }
 
@@ -467,11 +470,12 @@ $formTops: (
     }
   }
 
-  @media screen and (max-width: 1345px){
+  @media screen and (max-width: 1370px){
 
     .App-header{
       left: 7%;
-      /*width: 93%;*/
+      //width: 93%;
+
       nav{
         width: 95%;
 
@@ -489,8 +493,11 @@ $formTops: (
     }
   }
 
-  @media screen and (max-width: 1160px){
+  @media screen and (max-width: 1172px){
     .App-header{
+
+      width: 93%;
+
       nav{
         width: 100%;
       }
@@ -505,6 +512,9 @@ $formTops: (
 
   @media screen and (max-width: 1104px){
     .App-header{
+
+      width: 100%;
+
       nav {
         span{
           font-size: 1.4em;
@@ -535,7 +545,7 @@ $formTops: (
 
 @media screen and (max-width: 990px){
   .App-header{
-    width: 98%;
+    //width: 98%;
     left: 2%;
     nav {
       width: 100%;
